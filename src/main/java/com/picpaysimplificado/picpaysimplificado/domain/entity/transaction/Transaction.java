@@ -1,11 +1,8 @@
-package com.picpaysimplificado.picpaysimplificado.domain.transaction;
+package com.picpaysimplificado.picpaysimplificado.domain.entity.transaction;
 
-import com.picpaysimplificado.picpaysimplificado.domain.user.User;
+import com.picpaysimplificado.picpaysimplificado.domain.entity.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Transaction {
 
