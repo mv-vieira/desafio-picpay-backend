@@ -1,7 +1,9 @@
 package com.picpaysimplificado.picpaysimplificado.domain.entity.user;
 
+import com.picpaysimplificado.picpaysimplificado.domain.web.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 
@@ -36,4 +38,13 @@ public class User {
     private UserType userType;
 
 
+    public User(UserDTO userDTO) {
+        this.firstName = userDTO.firstName();
+        this.lastName = userDTO.lastName();
+        this.document = userDTO.document();
+        this.email = userDTO.email();
+        this.password = userDTO.password();
+        this.balance = userDTO.balance();
+        this.userType = userDTO.userType();
+    }
 }
