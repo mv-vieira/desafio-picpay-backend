@@ -28,7 +28,7 @@ public class TransactionService {
 
     public Transaction createTransaction(TransactionDTO transaction) throws Exception {
         User sender = this.userService.findUserById(transaction.senderId());
-        User receiver = this.userService.findUserById(transaction.senderId());
+        User receiver = this.userService.findUserById(transaction.receiverId());
 
         userService.validateTransaction(sender,transaction.value());
 
@@ -63,8 +63,10 @@ public class TransactionService {
         if(authorizationResponse.getStatusCode() == HttpStatus.OK){
             String message = (String) authorizationResponse.getBody().get("message");
             return "Autorizado".equalsIgnoreCase(message);
+        } else {
+            return false;
         }
-        return false;
+
 
     }
 }
